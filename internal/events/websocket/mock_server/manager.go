@@ -24,15 +24,15 @@ import (
 
 type ServerManager struct {
 	serverList       *util.List[WebSocketServer]
-	reconnectTesting bool   // Indicates if the server is in the process of running a simulation server reconnect/restart
-	primaryServer    string // The current primary server by its ID. This should be in serverList
-	ip               string // IP the server will bind to
-	port             int    // Port the server will bind to
-	debugEnabled     bool   // Indicates if the server was started with --debug
-	strictMode       bool   // Indicates if the server was started with --require-subscriptions
-	sslEnabled       bool   // Indicates if the server was started with --ssl
-	protocolHttp     string // String for the HTTP protocol URIs (http or https)
-	protocolWs       string // String for the WS protocol URIs (ws or wss)
+	primaryServer    string
+	ip               string
+	protocolHttp     string
+	protocolWs       string
+	port             int
+	reconnectTesting bool
+	debugEnabled     bool
+	strictMode       bool
+	sslEnabled       bool
 }
 
 var serverManager *ServerManager

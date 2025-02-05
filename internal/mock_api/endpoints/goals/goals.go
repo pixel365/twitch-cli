@@ -41,9 +41,9 @@ type GetCreatorGoalsResponse struct {
 	BroadcasterLogin string `json:"broadcaster_login"`
 	Type             string `json:"type"`
 	Description      string `json:"description"`
+	CreatedAt        string `json:"created_at"`
 	CurrentAmount    int    `json:"current_amount"`
 	TargetAmount     int    `json:"target_amount"`
-	CreatedAt        string `json:"created_at"`
 }
 
 func (e Goals) Path() string { return "/goals" }

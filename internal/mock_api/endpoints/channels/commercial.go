@@ -38,8 +38,8 @@ type CommercialEndpointRequest struct {
 }
 
 type CommercialEndpointResponse struct {
-	Length     int    `json:"length"`
 	Message    string `json:"message"`
+	Length     int    `json:"length"`
 	RetryAfter int    `json:"retry_after"`
 }
 

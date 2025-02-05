@@ -3,8 +3,8 @@
 package models
 
 type UserUpdateEventSubResponse struct {
-	Subscription EventsubSubscription  `json:"subscription"`
 	Event        StreamUpEventSubEvent `json:"event"`
+	Subscription EventsubSubscription  `json:"subscription"`
 }
 
 type UserUpdateEventSubEvent struct {
@@ -12,6 +12,6 @@ type UserUpdateEventSubEvent struct {
 	UserLogin     string `json:"user_login"`
 	UserName      string `json:"user_name"`
 	Email         string `json:"email"`
-	EmailVerified bool   `json:"email_verified"`
 	Description   string `json:"description"`
+	EmailVerified bool   `json:"email_verified"`
 }

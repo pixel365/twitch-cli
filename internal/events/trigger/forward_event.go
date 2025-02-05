@@ -19,7 +19,6 @@ import (
 type ForwardParamters struct {
 	ID                  string
 	ForwardAddress      string
-	JSON                []byte
 	Transport           string
 	Timestamp           string
 	Secret              string
@@ -28,6 +27,7 @@ type ForwardParamters struct {
 	Method              string
 	Type                string
 	SubscriptionVersion string
+	JSON                []byte
 }
 
 type header struct {

@@ -9,9 +9,9 @@ type AdBreakBeginEventSubEvent struct {
 	RequesterUserID      string `json:"requester_user_id"`
 	RequesterUserLogin   string `json:"requester_user_login"`
 	RequesterUserName    string `json:"requester_user_name"`
+	StartedAt            string `json:"started_at"`
 	Duration             int    `json:"duration_seconds"`
 	IsAutomatic          bool   `json:"is_automatic"`
-	StartedAt            string `json:"started_at"`
 }
 
 type AdBreakBeginEventSubResponse struct {

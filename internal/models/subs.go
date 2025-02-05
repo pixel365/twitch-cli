@@ -24,6 +24,7 @@ type GiftEventSubResponse struct {
 }
 
 type GiftEventSubEvent struct {
+	CumulativeTotal      *int   `json:"cumulative_total"`
 	UserID               string `json:"user_id"`
 	UserLogin            string `json:"user_login"`
 	UserName             string `json:"user_name"`
@@ -33,7 +34,6 @@ type GiftEventSubEvent struct {
 	Tier                 string `json:"tier"`
 	Total                int    `json:"total"`
 	IsAnonymous          bool   `json:"is_anonymous"`
-	CumulativeTotal      *int   `json:"cumulative_total"`
 }
 
 type SubscribeMessageEventSubResponse struct {
@@ -42,6 +42,7 @@ type SubscribeMessageEventSubResponse struct {
 }
 
 type SubscribeMessageEventSubEvent struct {
+	StreakMonths         *int                            `json:"streak_months"`
 	UserID               string                          `json:"user_id"`
 	UserLogin            string                          `json:"user_login"`
 	UserName             string                          `json:"user_name"`
@@ -51,7 +52,6 @@ type SubscribeMessageEventSubEvent struct {
 	Tier                 string                          `json:"tier"`
 	Message              SubscribeMessageEventSubMessage `json:"message"`
 	CumulativeMonths     int                             `json:"cumulative_months"`
-	StreakMonths         *int                            `json:"streak_months"`
 	DurationMonths       int                             `json:"duration_months"`
 }
 
@@ -61,7 +61,7 @@ type SubscribeMessageEventSubMessage struct {
 }
 
 type SubscribeMessageEventSubMessageEmote struct {
+	ID    string `json:"id"`
 	Begin int    `json:"begin"`
 	End   int    `json:"end"`
-	ID    string `json:"id"`
 }

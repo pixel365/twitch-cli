@@ -9,29 +9,28 @@ import (
 )
 
 type Subscription struct {
-	BroadcasterID    string          `db:"broadcaster_id" json:"broadcaster_id"`
-	BroadcasterLogin string          `db:"broadcaster_login" json:"broadcaster_login"`
-	BroadcasterName  string          `db:"broadcaster_name" json:"broadcaster_name"`
+	GifterID         *sql.NullString `db:"gifter_id" json:"gifter_id"`
+	GifterLogin      *sql.NullString `db:"gifter_login" json:"gifter_login"`
+	GifterName       *sql.NullString `db:"gifter_name" json:"gifter_name"`
 	UserID           string          `db:"user_id" json:"user_id"`
 	UserLogin        string          `db:"user_login" json:"user_login"`
 	UserName         string          `db:"user_name" json:"user_name"`
-	IsGift           bool            `db:"is_gift" json:"is_gift"`
-	GifterID         *sql.NullString `db:"gifter_id" json:"gifter_id"`
-	GifterName       *sql.NullString `db:"gifter_name" json:"gifter_name"`
-	GifterLogin      *sql.NullString `db:"gifter_login" json:"gifter_login"`
+	BroadcasterID    string          `db:"broadcaster_id" json:"broadcaster_id"`
+	BroadcasterName  string          `db:"broadcaster_name" json:"broadcaster_name"`
+	BroadcasterLogin string          `db:"broadcaster_login" json:"broadcaster_login"`
 	Tier             string          `db:"tier" json:"tier"`
 	CreatedAt        string          `db:"created_at" json:"-"`
-	// calculated fields
-	PlanName string `json:"plan_name"`
+	PlanName         string          `json:"plan_name"`
+	IsGift           bool            `db:"is_gift" json:"is_gift"`
 }
 
 type SubscriptionInsert struct {
+	GifterID      *sql.NullString `db:"gifter_id" json:"gifter_id,omitempty"`
 	BroadcasterID string          `db:"broadcaster_id" json:"broadcaster_id"`
 	UserID        string          `db:"user_id" json:"user_id"`
-	IsGift        bool            `db:"is_gift" json:"is_gift"`
-	GifterID      *sql.NullString `db:"gifter_id" json:"gifter_id,omitempty"`
 	Tier          string          `db:"tier" json:"tier"`
 	CreatedAt     string          `db:"created_at" json:"-"`
+	IsGift        bool            `db:"is_gift" json:"is_gift"`
 }
 
 func (q *Query) GetSubscriptions(s Subscription) (*DBResponse, error) {

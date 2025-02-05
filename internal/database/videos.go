@@ -8,26 +8,25 @@ import (
 )
 
 type Video struct {
-	ID               string              `db:"id" json:"id" dbs:"v.id"`
+	CategoryID       *string             `db:"category_id" dbs:"v.category_id" json:"-"`
 	StreamID         *string             `db:"stream_id" json:"stream_id"`
-	BroadcasterID    string              `db:"broadcaster_id" json:"user_id"`
-	BroadcasterLogin string              `db:"broadcaster_login" json:"user_login" dbi:"false"`
+	PublishedAt      string              `db:"published_at" json:"published_at"`
+	Duration         string              `db:"duration" json:"duration"`
 	BroadcasterName  string              `db:"broadcaster_name" json:"user_name" dbi:"false"`
 	Title            string              `db:"title" json:"title"`
 	VideoDescription string              `db:"video_description" json:"description"`
 	CreatedAt        string              `db:"created_at" json:"created_at"`
-	PublishedAt      string              `db:"published_at" json:"published_at"`
+	ID               string              `db:"id" json:"id" dbs:"v.id"`
 	Viewable         string              `db:"viewable" json:"viewable"`
-	ViewCount        int                 `db:"view_count" json:"view_count"`
-	Duration         string              `db:"duration" json:"duration"`
+	PeriodDate       string              `db:"period_date" dbi:"false" json:"-"`
+	BroadcasterLogin string              `db:"broadcaster_login" json:"user_login" dbi:"false"`
 	VideoLanguage    string              `db:"video_language" json:"language"`
-	MutedSegments    []VideoMutedSegment `json:"muted_segments"`
-	CategoryID       *string             `db:"category_id" dbs:"v.category_id" json:"-"`
+	ThumbnailURL     string              `json:"thumbnail_url"`
+	BroadcasterID    string              `db:"broadcaster_id" json:"user_id"`
 	Type             string              `db:"type" json:"type"`
-	// calculated fields
-	URL          string `json:"url"`
-	ThumbnailURL string `json:"thumbnail_url"`
-	PeriodDate   string `db:"period_date" dbi:"false" json:"-"`
+	URL              string              `json:"url"`
+	MutedSegments    []VideoMutedSegment `json:"muted_segments"`
+	ViewCount        int                 `db:"view_count" json:"view_count"`
 }
 
 type VideoMutedSegment struct {
@@ -37,26 +36,25 @@ type VideoMutedSegment struct {
 }
 
 type Clip struct {
+	Title           string  `db:"title" json:"title"`
+	EndedAt         string  `db:"ended_at" dbi:"false" json:"-"`
 	ID              string  `db:"id" json:"id" dbs:"c.id"`
-	BroadcasterID   string  `db:"broadcaster_id" json:"broadcaster_id"`
-	BroadcasterName string  `db:"broadcaster_name" json:"broadcaster_name" dbi:"false"`
 	CreatorID       string  `db:"creator_id" json:"creator_id"`
 	CreatorName     string  `db:"creator_name" json:"creator_name" dbi:"false"`
 	VideoID         string  `db:"video_id" json:"video_id"`
 	GameID          string  `db:"game_id" json:"game_id"`
 	Language        string  `db:"language" dbi:"false" json:"language"`
-	Title           string  `db:"title" json:"title"`
-	ViewCount       int     `db:"view_count" json:"view_count"`
+	BroadcasterName string  `db:"broadcaster_name" json:"broadcaster_name" dbi:"false"`
+	BroadcasterID   string  `db:"broadcaster_id" json:"broadcaster_id"`
+	StartedAt       string  `db:"started_at" dbi:"false" json:"-"`
 	CreatedAt       string  `db:"created_at" json:"created_at"`
-	Duration        float64 `db:"duration" json:"duration"`
+	EmbedURL        string  `json:"embed_url"`
+	ThumbnailURL    string  `json:"thumbnail_url"`
+	URL             string  `json:"url"`
 	VodOffset       int     `db:"vod_offset" json:"vod_offset"`
+	Duration        float64 `db:"duration" json:"duration"`
+	ViewCount       int     `db:"view_count" json:"view_count"`
 	IsFeatured      bool    `json:"is_featured"`
-	// calculated fields
-	URL          string `json:"url"`
-	ThumbnailURL string `json:"thumbnail_url"`
-	EmbedURL     string `json:"embed_url"`
-	StartedAt    string `db:"started_at" dbi:"false" json:"-"`
-	EndedAt      string `db:"ended_at" dbi:"false" json:"-"`
 }
 
 var sortMap = map[string]string{

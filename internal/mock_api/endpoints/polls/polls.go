@@ -37,10 +37,10 @@ type PostPollsBody struct {
 	Title                      string                `json:"title"`
 	Choices                    []PostPollsBodyChoice `json:"choices"`
 	Duration                   int                   `json:"duration"`
-	BitsVotingEnabled          bool                  `json:"bits_voting_enabled"`
 	BitsPerVote                int                   `json:"bits_per_vote"`
-	ChannelPointsVotingEnabled bool                  `json:"channel_points_voting_enabled"`
 	ChannelPointsPerVote       int                   `json:"channel_points_per_vote"`
+	BitsVotingEnabled          bool                  `json:"bits_voting_enabled"`
+	ChannelPointsVotingEnabled bool                  `json:"channel_points_voting_enabled"`
 }
 
 type PostPollsBodyChoice struct {

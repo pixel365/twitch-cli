@@ -8,9 +8,9 @@ var db database.CLIDatabase
 
 type TagResponse struct {
 	TagID                    string         `json:"tag_id"`
-	IsAuto                   bool           `json:"is_auto"`
 	LocalizationNames        []Localization `json:"localization_names"`
 	LocalizationDescriptions []Localization `json:"localization_descriptions"`
+	IsAuto                   bool           `json:"is_auto"`
 }
 
 type Localization struct {

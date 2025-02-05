@@ -3,8 +3,8 @@
 package models
 
 type ShieldModeEventSubResponse struct {
-	Subscription EventsubSubscription    `json:"subscription"`
 	Event        ShieldModeEventSubEvent `json:"event"`
+	Subscription EventsubSubscription    `json:"subscription"`
 }
 
 type ShieldModeEventSubEvent struct {

@@ -20,23 +20,18 @@ import (
 const KEEPALIVE_TIMEOUT_SECONDS = 10
 
 type WebSocketServer struct {
-	ServerId     string // Int representing the ID of the server
-	DebugEnabled bool   // Display debug messages; --debug
-	StrictMode   bool   // Force stricter production-like qualities; --strict
-
-	Upgrader websocket.Upgrader
-
-	Clients   *util.List[Client] // All connected clients
-	muClients sync.Mutex         // Mutex for WebSocketServer.Clients
-
-	Status   int        // 0 = shut down; 1 = shutting down; 2 = online
-	muStatus sync.Mutex // Mutex for WebSocketServer.Status
-
-	Subscriptions   map[string][]Subscription // Active subscriptions on this server -- Accessed via Subscriptions[clientName]
-	muSubscriptions sync.Mutex                // Mutex for WebSocketServer.Subscriptions
-
-	ReconnectClients   *util.List[[]Subscription] // Clients that were part of the last server
-	muReconnectClients sync.Mutex                 // Mutex for WebSocketServer.ReconnectClients
+	Clients            *util.List[Client]
+	Subscriptions      map[string][]Subscription
+	ReconnectClients   *util.List[[]Subscription]
+	Upgrader           websocket.Upgrader
+	ServerId           string
+	Status             int
+	muClients          sync.Mutex
+	muStatus           sync.Mutex
+	muSubscriptions    sync.Mutex
+	muReconnectClients sync.Mutex
+	DebugEnabled       bool
+	StrictMode         bool
 }
 
 func (ws *WebSocketServer) WsPageHandler(w http.ResponseWriter, r *http.Request) {

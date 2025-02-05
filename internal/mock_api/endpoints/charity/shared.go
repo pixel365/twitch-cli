@@ -7,7 +7,7 @@ import "github.com/twitchdev/twitch-cli/internal/database"
 var db database.CLIDatabase
 
 type CharityAmount struct {
+	Currency      string `json:"currency"`
 	Value         int    `json:"value"`
 	DecimalPlaces int    `json:"decimal_places"`
-	Currency      string `json:"currency"`
 }

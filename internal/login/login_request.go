@@ -13,8 +13,8 @@ import (
 )
 
 type loginRequestResponse struct {
-	StatusCode int
 	Body       []byte
+	StatusCode int
 }
 
 type loginHeader struct {

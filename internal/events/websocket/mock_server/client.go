@@ -8,21 +8,20 @@ import (
 )
 
 type Client struct {
-	clientName           string // Unique name for the client. Not the Client ID.
+	keepAliveTimer       *time.Ticker
+	keepAliveLoopChan    chan struct{}
+	pingTimer            *time.Ticker
+	pingLoopChan         chan struct{}
+	mustSubscribeTimer   *time.Timer
 	conn                 *websocket.Conn
-	mutex                sync.Mutex
-	ConnectedAtTimestamp string // RFC3339Nano timestamp indicating when the client connected to the server
 	connectionUrl        string
+	clientName           string
+	ConnectedAtTimestamp string
+	keepAliveSeconds     int
+	mutex                sync.Mutex
 	KeepAliveEnabled     bool
-
-	mustSubscribeTimer *time.Timer
-	keepAliveChanOpen  bool
-	keepAliveLoopChan  chan struct{}
-	keepAliveTimer     *time.Ticker
-	keepAliveSeconds   int
-	pingChanOpen       bool
-	pingLoopChan       chan struct{}
-	pingTimer          *time.Ticker
+	keepAliveChanOpen    bool
+	pingChanOpen         bool
 }
 
 func (c *Client) SendMessage(messageType int, data []byte) error {

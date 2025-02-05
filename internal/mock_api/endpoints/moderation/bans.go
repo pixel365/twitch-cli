@@ -32,8 +32,8 @@ var bansScopesByMethod = map[string][]string{
 
 type PostBansRequestBodyData struct {
 	UserID    string `json:"user_id"`
-	Duration  int    `json:"duration"`
 	Reason    string `json:"reason"`
+	Duration  int    `json:"duration"`
 	Duplicate bool   `json:"-"`
 }
 
@@ -42,11 +42,11 @@ type PostBansRequestBody struct {
 }
 
 type PostBansResponseBodyData struct {
+	EndTime       *string `json:"end_time"`
 	BroadcasterID string  `json:"broadcaster_id"`
 	ModeratorID   string  `json:"moderator_Id"`
 	UserID        string  `json:"user_id"`
 	CreatedAt     string  `json:"created_at"`
-	EndTime       *string `json:"end_time"`
 }
 
 type Bans struct{}

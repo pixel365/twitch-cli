@@ -7,43 +7,43 @@ import (
 )
 
 type ChannelPointsReward struct {
-	ID                               string         `db:"id" json:"id" dbs:"cpr.id"`
-	BroadcasterID                    string         `db:"broadcaster_id" json:"broadcaster_id"`
-	BroadcasterLogin                 string         `db:"broadcaster_login" dbi:"false" json:"broadcaster_login"`
-	BroadcasterName                  string         `db:"broadcaster_name" dbi:"false" json:"broadcaster_name"`
-	RewardImage                      sql.NullString `db:"reward_image" json:"-"`
-	RealRewardImage                  *string        `json:"image"`
-	BackgroundColor                  string         `db:"background_color" json:"background_color"`
-	IsEnabled                        *bool          `db:"is_enabled" json:"is_enabled"`
-	Cost                             *int           `db:"cost" json:"cost"`
-	Title                            string         `db:"title" dbs:"cpr.title" json:"title"`
-	RewardPrompt                     string         `db:"reward_prompt" json:"prompt"`
-	IsUserInputRequired              bool           `db:"is_user_input_required" json:"is_user_input_required"`
 	MaxPerStream                     `json:"max_per_stream_setting"`
-	MaxPerUserPerStream              `json:"max_per_user_per_stream_setting"`
 	GlobalCooldown                   `json:"global_cooldown_setting"`
-	IsPaused                         bool `db:"is_paused" json:"is_paused"`
-	IsInStock                        bool `db:"is_in_stock" json:"is_in_stock"`
+	MaxPerUserPerStream              `json:"max_per_user_per_stream_setting"`
+	RealCooldownExpiresAt            *string `json:"cooldown_expires_at"`
+	RedemptionsRedeemedCurrentStream *int    `db:"redemptions_redeemed_current_stream" json:"redemptions_redeemed_current_stream"`
+	RealRewardImage                  *string `json:"image"`
+	IsEnabled                        *bool   `db:"is_enabled" json:"is_enabled"`
+	Cost                             *int    `db:"cost" json:"cost"`
 	DefaultImage                     `dbi:"false" json:"default_image"`
-	ShouldRedemptionsSkipQueue       bool           `db:"should_redemptions_skip_queue" json:"should_redemptions_skip_request_queue"`
-	RedemptionsRedeemedCurrentStream *int           `db:"redemptions_redeemed_current_stream" json:"redemptions_redeemed_current_stream"`
+	RewardPrompt                     string         `db:"reward_prompt" json:"prompt"`
+	ID                               string         `db:"id" json:"id" dbs:"cpr.id"`
+	Title                            string         `db:"title" dbs:"cpr.title" json:"title"`
+	BackgroundColor                  string         `db:"background_color" json:"background_color"`
+	BroadcasterName                  string         `db:"broadcaster_name" dbi:"false" json:"broadcaster_name"`
+	BroadcasterLogin                 string         `db:"broadcaster_login" dbi:"false" json:"broadcaster_login"`
+	BroadcasterID                    string         `db:"broadcaster_id" json:"broadcaster_id"`
+	RewardImage                      sql.NullString `db:"reward_image" json:"-"`
 	CooldownExpiresAt                sql.NullString `db:"cooldown_expires_at" json:"-"`
-	RealCooldownExpiresAt            *string        `json:"cooldown_expires_at"`
+	IsUserInputRequired              bool           `db:"is_user_input_required" json:"is_user_input_required"`
+	IsPaused                         bool           `db:"is_paused" json:"is_paused"`
+	IsInStock                        bool           `db:"is_in_stock" json:"is_in_stock"`
+	ShouldRedemptionsSkipQueue       bool           `db:"should_redemptions_skip_queue" json:"should_redemptions_skip_request_queue"`
 }
 
 type MaxPerStream struct {
-	StreamMaxEnabled bool `db:"stream_max_enabled" json:"is_enabled" dbi:"force"`
 	StreamMaxCount   *int `db:"stream_max_count" json:"max_per_stream"`
+	StreamMaxEnabled bool `db:"stream_max_enabled" json:"is_enabled" dbi:"force"`
 }
 
 type MaxPerUserPerStream struct {
-	StreamUserMaxEnabled bool `db:"stream_user_max_enabled" json:"is_enabled" dbi:"force"`
 	StreamMUserMaxCount  *int `db:"stream_user_max_count" json:"max_per_user_per_stream"`
+	StreamUserMaxEnabled bool `db:"stream_user_max_enabled" json:"is_enabled" dbi:"force"`
 }
 
 type GlobalCooldown struct {
-	GlobalCooldownEnabled bool `db:"global_cooldown_enabled" json:"is_enabled" dbi:"force"`
 	GlobalCooldownSeconds *int `db:"global_cooldown_seconds" json:"global_cooldown_seconds"`
+	GlobalCooldownEnabled bool `db:"global_cooldown_enabled" json:"is_enabled" dbi:"force"`
 }
 
 type DefaultImage struct {

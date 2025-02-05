@@ -13,10 +13,10 @@ import (
 )
 
 type Query struct {
-	Limit  int
+	DB     *sqlx.DB
 	Cursor string
 	InternalPagination
-	DB *sqlx.DB
+	Limit int
 }
 
 // NewQuery handles the logic for generating the pagination token to pass alongside the DB queries for easier access

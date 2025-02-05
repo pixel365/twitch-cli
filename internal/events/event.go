@@ -5,39 +5,39 @@ package events
 // MockEventParameters are used to craft the event; most of this data is prepopulated by lower services, such as the from/to users to avoid
 // replicating logic across files
 type MockEventParameters struct {
-	EventMessageID      string
-	SubscriptionID      string
-	Transport           string
-	Trigger             string
+	SubscriptionStatus  string
 	FromUserID          string
+	EventMessageID      string
+	Trigger             string
+	ItemID              string
 	FromUserName        string
 	ToUserID            string
-	ToUserName          string
-	IsAnonymous         bool
-	IsGift              bool
+	ItemName            string
+	BanEndTimestamp     string
+	BanStartTimestamp   string
 	GiftUser            string
 	EventStatus         string
-	SubscriptionStatus  string
-	ItemID              string
-	ItemName            string
-	Cost                int64
+	Transport           string
+	SubscriptionID      string
+	ToUserName          string
+	ClientID            string
 	Description         string
 	GameID              string
 	Tier                string
 	Timestamp           string
 	CharityCurrentValue int
 	CharityTargetValue  int
-	ClientID            string
-	BanStartTimestamp   string
-	BanEndTimestamp     string
+	Cost                int64
+	IsGift              bool
+	IsAnonymous         bool
 }
 
 type MockEventResponse struct {
 	ID        string
-	JSON      []byte
 	FromUser  string
 	ToUser    string
 	Timestamp string
+	JSON      []byte
 }
 
 // MockEvent represents an event to be triggered using the `twitch event trigger <event>` command.

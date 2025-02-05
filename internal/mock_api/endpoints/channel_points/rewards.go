@@ -33,18 +33,18 @@ var rewardScopesByMethod = map[string][]string{
 type Reward struct{}
 
 type PatchAndPostRewardBody struct {
-	Title                      string `json:"title"`
-	Cost                       *int   `json:"cost"`
-	RewardPrompt               string `json:"prompt"`
-	IsEnabled                  *bool  `json:"is_enabled"`
-	BackgroundColor            string `json:"background_color"`
-	IsUserInputRequired        bool   `json:"is_user_input_required"`
-	StreamMaxEnabled           bool   `json:"is_max_per_stream_enabled"`
-	StreamMaxCount             *int   `json:"max_per_stream"`
-	StreamUserMaxEnabled       bool   `json:"is_max_per_user_per_stream_enabled"`
 	StreamUserMaxCount         *int   `json:"max_per_user_per_stream"`
-	GlobalCooldownEnabled      bool   `json:"is_global_cooldown_enabled"`
+	IsEnabled                  *bool  `json:"is_enabled"`
 	GlobalCooldownSeconds      *int   `json:"global_cooldown_seconds"`
+	Cost                       *int   `json:"cost"`
+	StreamMaxCount             *int   `json:"max_per_stream"`
+	Title                      string `json:"title"`
+	RewardPrompt               string `json:"prompt"`
+	BackgroundColor            string `json:"background_color"`
+	StreamMaxEnabled           bool   `json:"is_max_per_stream_enabled"`
+	GlobalCooldownEnabled      bool   `json:"is_global_cooldown_enabled"`
+	StreamUserMaxEnabled       bool   `json:"is_max_per_user_per_stream_enabled"`
+	IsUserInputRequired        bool   `json:"is_user_input_required"`
 	IsPaused                   bool   `json:"is_paused"`
 	ShouldRedemptionsSkipQueue bool   `json:"should_redemptions_skip_request_queue"`
 }

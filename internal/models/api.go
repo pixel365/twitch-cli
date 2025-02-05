@@ -5,12 +5,12 @@ package models
 type APIResponse struct {
 	Data       any                       `json:"data,omitempty"`
 	Pagination *APIPagination            `json:"pagination,omitempty"`
-	Error      string                    `json:"error,omitempty"`
-	Status     int                       `json:"status,omitempty"`
-	Message    string                    `json:"message,omitempty"`
-	Template   string                    `json:"template,omitempty"`
 	Total      *int                      `json:"total,omitempty"`
 	DateRange  *BitsLeaderboardDateRange `json:"date_range,omitempty"`
+	Error      string                    `json:"error,omitempty"`
+	Message    string                    `json:"message,omitempty"`
+	Template   string                    `json:"template,omitempty"`
+	Status     int                       `json:"status,omitempty"`
 	Points     int                       `json:"points,omitempty"`
 }
 
@@ -23,10 +23,10 @@ type BitsLeaderboardDateRange struct {
 	EndedAt   string `json:"ended_at"`
 }
 
-type ExtensionAPIResponse struct { // extensions/live
+type ExtensionAPIResponse struct {
 	Data       interface{} `json:"data,omitempty"`
 	Pagination *string     `json:"pagination,omitempty"`
 	Error      string      `json:"error,omitempty"`
-	Status     int         `json:"status,omitempty"`
 	Message    string      `json:"message,omitempty"`
+	Status     int         `json:"status,omitempty"`
 }

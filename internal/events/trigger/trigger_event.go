@@ -23,42 +23,42 @@ import (
 
 // TriggerParameters defines the parameters used to emit an event.
 type TriggerParameters struct {
-	Event               string
-	Transport           string
-	IsAnonymous         bool
+	Description         string
+	WebSocketClient     string
+	BanStartTimestamp   string
 	FromUser            string
 	ToUser              string
 	GiftUser            string
 	EventStatus         string
 	SubscriptionStatus  string
 	ItemID              string
-	Cost                int64
+	Version             string
 	ForwardAddress      string
 	Secret              string
-	Verbose             bool
-	Count               int
-	Description         string
+	BanEndTimestamp     string
+	Transport           string
+	Timestamp           string
 	ItemName            string
 	GameID              string
 	Tier                string
-	Timestamp           string
+	Event               string
 	SubscriptionID      string
 	EventMessageID      string
-	CharityCurrentValue int
-	CharityTargetValue  int
 	ClientID            string
-	Version             string
-	WebSocketClient     string
-	BanStartTimestamp   string
-	BanEndTimestamp     string
+	CharityTargetValue  int
+	CharityCurrentValue int
+	Cost                int64
+	Count               int
+	IsAnonymous         bool
+	Verbose             bool
 }
 
 type TriggerResponse struct {
 	ID        string
-	JSON      []byte
 	FromUser  string
 	ToUser    string
 	Timestamp string
+	JSON      []byte
 }
 
 // Fire emits an event using the TriggerParameters defined above.

@@ -17,9 +17,9 @@ import (
 )
 
 type UserAuthentication struct {
-	Scopes   []string
 	UserID   string
 	ClientID string
+	Scopes   []string
 }
 
 func AuthenticationMiddleware(next mock_api.MockEndpoint) http.Handler {

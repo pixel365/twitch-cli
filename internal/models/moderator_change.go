@@ -10,8 +10,8 @@ type ModeratorChangeEventData struct {
 }
 
 type ModeratorChangeEventSubResponse struct {
-	Subscription EventsubSubscription         `json:"subscription"`
 	Event        ModeratorChangeEventSubEvent `json:"event"`
+	Subscription EventsubSubscription         `json:"subscription"`
 }
 
 type ModeratorChangeEventSubEvent struct {

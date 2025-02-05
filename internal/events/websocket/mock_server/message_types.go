@@ -41,12 +41,12 @@ type WelcomeMessagePayload struct { // <2>
 	Session WelcomeMessagePayloadSession `json:"session"`
 }
 
-type WelcomeMessagePayloadSession struct { // <3>
+type WelcomeMessagePayloadSession struct {
+	ReconnectUrl            *string `json:"reconnect_url"`
 	ID                      string  `json:"id"`
 	Status                  string  `json:"status"`
-	KeepaliveTimeoutSeconds int     `json:"keepalive_timeout_seconds"`
-	ReconnectUrl            *string `json:"reconnect_url"`
 	ConnectedAt             string  `json:"connected_at"`
+	KeepaliveTimeoutSeconds int     `json:"keepalive_timeout_seconds"`
 }
 
 /* ** Reconnect message **
@@ -96,9 +96,9 @@ type ReconnectMessagePayloadSession struct { // <3>
 }
 */
 
-type KeepaliveMessage struct { // <1>
-	Metadata MessageMetadata         `json:"metadata"`
+type KeepaliveMessage struct {
 	Payload  KeepaliveMessagePayload `json:"payload"`
+	Metadata MessageMetadata         `json:"metadata"`
 }
 
 type KeepaliveMessagePayload struct{}
@@ -123,7 +123,7 @@ type KeepaliveMessagePayload struct{}
 }
 */
 
-type NotificationMessage struct { // <1>
+type NotificationMessage struct {
 	Metadata MessageMetadata         `json:"metadata"`
 	Payload  models.EventsubResponse `json:"payload"`
 }

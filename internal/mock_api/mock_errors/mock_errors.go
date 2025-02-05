@@ -9,9 +9,9 @@ import (
 )
 
 type ErrorMessage struct {
-	StatusCode int    `json:"status"`
 	Error      string `json:"error"`
 	Message    string `json:"message"`
+	StatusCode int    `json:"status"`
 }
 
 func GetErrorBytes(statusCode int, err error, message string) []byte {

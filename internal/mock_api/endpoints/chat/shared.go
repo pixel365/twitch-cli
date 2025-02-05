@@ -15,14 +15,14 @@ type BadgesResponse struct {
 }
 
 type BadgesVersion struct {
+	ClickAction *string `json:"click_action"`
+	ClickURL    *string `json:"click_url"`
 	ID          string  `json:"id"`
 	ImageURL1X  string  `json:"image_url_1x"`
 	ImageURL2X  string  `json:"image_url_2x"`
 	ImageURL4X  string  `json:"image_url_4x"`
 	Title       string  `json:"title"`
 	Description string  `json:"description"`
-	ClickAction *string `json:"click_action"`
-	ClickURL    *string `json:"click_url"`
 }
 
 type EmotesResponse struct {

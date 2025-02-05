@@ -18,14 +18,13 @@ type apiRequestParameters struct {
 	ClientID string
 }
 type apiRequestResponse struct {
-	StatusCode int
-	Body       []byte
-
-	HttpMethod      string
-	RequestPath     string
 	RequestHeaders  http.Header
 	ResponseHeaders http.Header
+	HttpMethod      string
+	RequestPath     string
 	HttpVersion     string
+	Body            []byte
+	StatusCode      int
 }
 
 func apiRequest(method string, url string, payload []byte, p apiRequestParameters) (apiRequestResponse, error) {

@@ -38,13 +38,13 @@ var f = false
 type ScheduleSegment struct{}
 
 type SegmentPatchAndPostBody struct {
+	IsRecurring *bool   `json:"is_recurring"`
+	CategoryID  *string `json:"category_id"`
+	IsCanceled  *bool   `json:"is_canceled"`
 	StartTime   string  `json:"start_time"`
 	Timezone    string  `json:"timezone"`
-	IsRecurring *bool   `json:"is_recurring"`
 	Duration    string  `json:"duration"`
-	CategoryID  *string `json:"category_id"`
 	Title       string  `json:"title"`
-	IsCanceled  *bool   `json:"is_canceled"`
 }
 
 func (e ScheduleSegment) Path() string { return "/schedule/segment" }

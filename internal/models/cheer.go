@@ -9,9 +9,9 @@ type CheerEventSubEvent struct {
 	BroadcasterUserID    string `json:"broadcaster_user_id"`
 	BroadcasterUserLogin string `json:"broadcaster_user_login"`
 	BroadcasterUserName  string `json:"broadcaster_user_name"`
-	IsAnonymous          bool   `json:"is_anonymous"`
 	Message              string `json:"message"`
 	Bits                 int64  `json:"bits"`
+	IsAnonymous          bool   `json:"is_anonymous"`
 }
 
 type CheerEventSubResponse struct {

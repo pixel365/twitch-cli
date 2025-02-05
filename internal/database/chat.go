@@ -3,23 +3,21 @@
 package database
 
 type ChatSettings struct {
-	BroadcasterID                 string `db:"broadcaster_id" json:"broadcaster_id"`
-	SlowMode                      *bool  `db:"slow_mode" json:"slow_mode"`
+	EmoteMode                     *bool  `db:"emote_mode" json:"emote_mode"`
+	NonModeratorChatDelay         *bool  `db:"non_moderator_chat_delay" json:"non_moderator_chat_delay"`
 	SlowModeWaitTime              *int   `db:"slow_mode_wait_time" json:"slow_mode_wait_time"`
 	FollowerMode                  *bool  `db:"follower_mode" json:"follower_mode"`
 	FollowerModeDuration          *int   `db:"follower_mode_duration" json:"follower_mode_duration"`
 	SubscriberMode                *bool  `db:"subscriber_mode" json:"subscriber_mode"`
-	EmoteMode                     *bool  `db:"emote_mode" json:"emote_mode"`
+	SlowMode                      *bool  `db:"slow_mode" json:"slow_mode"`
 	UniqueChatMode                *bool  `db:"unique_chat_mode" json:"unique_chat_mode"`
-	NonModeratorChatDelay         *bool  `db:"non_moderator_chat_delay" json:"non_moderator_chat_delay"`
 	NonModeratorChatDelayDuration *int   `db:"non_moderator_chat_delay_duration" json:"non_moderator_chat_delay_duration"`
-
-	// Shield mode
-	ShieldModeIsActive       bool   `db:"shieldmode_is_active" json:"-"`
-	ShieldModeModeratorID    string `db:"shieldmode_moderator_id" json:"-"`
-	ShieldModeModeratorLogin string `db:"shieldmode_moderator_login" json:"-"`
-	ShieldModeModeratorName  string `db:"shieldmode_moderator_name" json:"-"`
-	ShieldModeLastActivated  string `db:"shieldmode_last_activated" json:"-"`
+	BroadcasterID                 string `db:"broadcaster_id" json:"broadcaster_id"`
+	ShieldModeModeratorID         string `db:"shieldmode_moderator_id" json:"-"`
+	ShieldModeModeratorLogin      string `db:"shieldmode_moderator_login" json:"-"`
+	ShieldModeModeratorName       string `db:"shieldmode_moderator_name" json:"-"`
+	ShieldModeLastActivated       string `db:"shieldmode_last_activated" json:"-"`
+	ShieldModeIsActive            bool   `db:"shieldmode_is_active" json:"-"`
 }
 
 func (q *Query) GetChatSettingsByBroadcaster(broadcaster string) (*DBResponse, error) {

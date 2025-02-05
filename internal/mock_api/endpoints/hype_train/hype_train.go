@@ -42,22 +42,22 @@ type HypeTrainEventsResponse struct {
 }
 
 type HypeTrainEventData struct {
+	LastContribution HypeTrainContribution   `json:"last_contribution"`
 	ID               string                  `json:"id"`
 	BroadcasterID    string                  `json:"broadcaster_id"`
 	CooldownEndTime  string                  `json:"cooldown_end_time"`
 	ExpiresAt        string                  `json:"expires_at"`
-	Goal             int                     `json:"goal"`
-	LastContribution HypeTrainContribution   `json:"last_contribution"`
-	Level            int                     `json:"level"`
 	StartedAt        string                  `json:"started_at"`
 	TopContributions []HypeTrainContribution `json:"top_contributions"`
+	Goal             int                     `json:"goal"`
+	Level            int                     `json:"level"`
 	Total            int                     `json:"total"`
 }
 
 type HypeTrainContribution struct {
-	Total int    `json:"total"`
 	Type  string `json:"type"`
 	User  string `json:"user"`
+	Total int    `json:"total"`
 }
 
 func (e HypeTrainEvents) Path() string { return "/hypetrain/events" }

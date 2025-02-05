@@ -31,9 +31,9 @@ type VerifyParameters struct {
 }
 
 type VerifyResponse struct {
+	Body             string
 	IsStatusValid    bool
 	IsChallengeValid bool
-	Body             string
 }
 
 func VerifyWebhookSubscription(p VerifyParameters) (VerifyResponse, error) {

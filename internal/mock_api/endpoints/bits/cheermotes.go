@@ -37,18 +37,18 @@ type CheermotesResponse struct {
 
 type CheermotesResponseData struct {
 	Prefix       string      `json:"prefix"`
-	Order        int         `json:"order"`
 	LastUpdated  string      `json:"last_updated"`
-	IsCharitable bool        `json:"is_charitable"`
-	Tiers        []Cheermote `json:"tiers"`
 	Type         string      `json:"type"`
+	Tiers        []Cheermote `json:"tiers"`
+	Order        int         `json:"order"`
+	IsCharitable bool        `json:"is_charitable"`
 }
 
 type Cheermote struct {
-	MinBits        int            `json:"min_bits"`
+	Images         CheermoteImage `json:"images"`
 	ID             string         `json:"id"`
 	Color          string         `json:"color"`
-	Images         CheermoteImage `json:"images"`
+	MinBits        int            `json:"min_bits"`
 	CanCheer       bool           `json:"can_cheer"`
 	ShowInBitsCard bool           `json:"show_in_bits_card"`
 }

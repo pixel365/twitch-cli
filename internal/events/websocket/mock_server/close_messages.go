@@ -1,8 +1,8 @@
 package mock_server
 
 type CloseMessage struct {
-	code    int
 	message string
+	code    int
 }
 
 var (

@@ -13,21 +13,21 @@ type PollEventSubEvent struct {
 	BroadcasterUserLogin string                      `json:"broadcaster_user_login"`
 	BroadcasterUserName  string                      `json:"broadcaster_user_name"`
 	Title                string                      `json:"title"`
-	Choices              []PollEventSubEventChoice   `json:"choices"`
-	BitsVoting           PollEventSubEventGoodVoting `json:"bits_voting"`
-	ChannelPointsVoting  PollEventSubEventGoodVoting `json:"channel_points_voting"`
 	Status               string                      `json:"status,omitempty"`
 	StartedAt            string                      `json:"started_at"`
 	EndsAt               string                      `json:"ends_at,omitempty"`
 	EndedAt              string                      `json:"ended_at,omitempty"`
+	Choices              []PollEventSubEventChoice   `json:"choices"`
+	BitsVoting           PollEventSubEventGoodVoting `json:"bits_voting"`
+	ChannelPointsVoting  PollEventSubEventGoodVoting `json:"channel_points_voting"`
 }
 
 type PollEventSubEventChoice struct {
-	ID                 string `json:"id"`
-	Title              string `json:"title"`
 	BitsVotes          *int   `json:"bits_votes,omitempty"`
 	ChannelPointsVotes *int   `json:"channel_points_votes,omitempty"`
 	Votes              *int   `json:"votes,omitempty"`
+	ID                 string `json:"id"`
+	Title              string `json:"title"`
 }
 
 type PollEventSubEventGoodVoting struct {

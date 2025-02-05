@@ -10,8 +10,8 @@ type Category struct {
 	ID          string `db:"id" json:"id"`
 	Name        string `db:"category_name" json:"name"`
 	BoxartURL   string `json:"box_art_url"`
-	ViewerCount int    `db:"vc" json:"-"`
 	IGDB        string `db:"igdb_id" json:"igdb_id"`
+	ViewerCount int    `db:"vc" json:"-"`
 }
 
 func (q *Query) GetCategories(cat Category) (*DBResponse, error) {

@@ -33,11 +33,11 @@ var shieldModeScopesByMethod = map[string][]string{
 }
 
 type GetShieldModeStatusResponseBody struct {
-	IsActive        bool   `json:"is_active"`
 	ModeratorID     string `json:"moderator_id"`
 	ModeratorName   string `json:"moderator_name"`
 	ModeratorLogin  string `json:"moderator_login"`
 	LastActivatedAt string `json:"last_activated_at"`
+	IsActive        bool   `json:"is_active"`
 }
 
 type PutShieldModeStatusRequestBody struct {

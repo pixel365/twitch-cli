@@ -9,31 +9,29 @@ import (
 )
 
 type Stream struct {
-	ID          string   `db:"id" json:"id" dbs:"s.id"`
-	UserID      string   `db:"broadcaster_id" json:"user_id"`
-	UserLogin   string   `db:"broadcaster_login" json:"user_login" dbi:"false"`
-	UserName    string   `db:"broadcaster_name" json:"user_name" dbi:"false"`
-	StreamType  string   `db:"stream_type" json:"type"`
-	ViewerCount int      `db:"viewer_count" json:"viewer_count"`
-	StartedAt   string   `db:"started_at" json:"started_at"`
-	IsMature    bool     `db:"is_mature" json:"is_mature"`
-	TagIDs      []string `json:"tag_ids" dbi:"false"`
-	Tags        []string `json:"tags" dbi:"false"`
-	// stored in users, but pulled here for json parsing
-	CategoryID       sql.NullString `db:"category_id" json:"-" dbi:"false"`
 	RealCategoryID   string         `json:"game_id"`
-	CategoryName     sql.NullString `db:"category_name" json:"-" dbi:"false"`
-	RealCategoryName string         `json:"game_name"`
-	Title            string         `db:"title" json:"title" dbi:"false"`
+	UserID           string         `db:"broadcaster_id" json:"user_id"`
+	UserLogin        string         `db:"broadcaster_login" json:"user_login" dbi:"false"`
+	UserName         string         `db:"broadcaster_name" json:"user_name" dbi:"false"`
+	StreamType       string         `db:"stream_type" json:"type"`
+	ThumbnailURL     string         `json:"thumbnail_url"`
+	StartedAt        string         `db:"started_at" json:"started_at"`
 	Language         string         `db:"stream_language" json:"language" dbi:"false"`
-	// calculated fields
-	ThumbnailURL string `json:"thumbnail_url"`
+	ID               string         `db:"id" json:"id" dbs:"s.id"`
+	Title            string         `db:"title" json:"title" dbi:"false"`
+	RealCategoryName string         `json:"game_name"`
+	TagIDs           []string       `json:"tag_ids" dbi:"false"`
+	CategoryName     sql.NullString `db:"category_name" json:"-" dbi:"false"`
+	CategoryID       sql.NullString `db:"category_id" json:"-" dbi:"false"`
+	Tags             []string       `json:"tags" dbi:"false"`
+	ViewerCount      int            `db:"viewer_count" json:"viewer_count"`
+	IsMature         bool           `db:"is_mature" json:"is_mature"`
 }
 
 type Tag struct {
 	ID     string `db:"id" json:"id"`
-	IsAuto bool   `db:"is_auto" dbi:"false" json:"is_auto"`
 	Name   string `db:"tag_name" json:"tag_name"`
+	IsAuto bool   `db:"is_auto" dbi:"false" json:"is_auto"`
 }
 
 type StreamMarkerUser struct {
@@ -51,11 +49,11 @@ type StreamMarkerVideo struct {
 type StreamMarker struct {
 	ID              string `db:"id" dbs:"sm.id" json:"id"`
 	CreatedAt       string `db:"created_at" json:"created_at"`
-	PositionSeconds int    `db:"position_seconds" json:"position_seconds"`
 	Description     string `db:"description" json:"description"`
 	BroadcasterID   string `db:"broadcaster_id" json:"-"`
 	VideoID         string `db:"video_id" dbs:"v.id" json:"-"`
 	URL             string `json:"URL"`
+	PositionSeconds int    `db:"position_seconds" json:"position_seconds"`
 }
 
 func (q *Query) GetStream(s Stream) (*DBResponse, error) {

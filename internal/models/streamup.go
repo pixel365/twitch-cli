@@ -3,8 +3,8 @@
 package models
 
 type StreamUpEventSubResponse struct {
-	Subscription EventsubSubscription  `json:"subscription"`
 	Event        StreamUpEventSubEvent `json:"event"`
+	Subscription EventsubSubscription  `json:"subscription"`
 }
 
 type StreamUpEventSubEvent struct {

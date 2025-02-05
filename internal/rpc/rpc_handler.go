@@ -12,20 +12,20 @@ var globalHandler RPCHandler
 type HandlerCallback func(RPCArgs) RPCResponse
 
 type RPCArgs struct {
+	Variables map[string]string
 	RPCName   string
 	Body      string
-	Variables map[string]string
 }
 
 type RPCResponse struct {
-	ResponseCode int
 	DetailedInfo string
+	ResponseCode int
 }
 
 type RPCHandler struct {
-	Port     int
-	Handlers map[string]HandlerCallback
 	listener net.Listener
+	Handlers map[string]HandlerCallback
+	Port     int
 }
 
 func (rpch *RPCHandler) RegisterHandler(rpcName string, callback HandlerCallback) bool {

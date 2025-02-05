@@ -3,38 +3,37 @@
 package database
 
 type Prediction struct {
+	WinningOutcomeID *string             `db:"winning_outcome_id" json:"winning_outcome_id"`
+	EndedAt          *string             `db:"ended_at" json:"ended_at"`
+	LockedAt         *string             `db:"locked_at" json:"locked_at"`
 	ID               string              `db:"id" dbs:"p.id" json:"id"`
 	BroadcasterID    string              `db:"broadcaster_id" dbs:"u1.id" json:"broadcaster_id"`
 	BroadcasterLogin string              `db:"broadcaster_login" dbi:"false" json:"broadcaster_login"`
 	BroadcasterName  string              `db:"broadcaster_name" dbi:"false" json:"broadcaster_name"`
 	Title            string              `db:"title" json:"title"`
-	WinningOutcomeID *string             `db:"winning_outcome_id" json:"winning_outcome_id"`
-	PredictionWindow int                 `db:"prediction_window" json:"prediction_window"`
 	Status           string              `db:"status" json:"status"`
 	StartedAt        string              `db:"created_at" json:"created_at"`
-	EndedAt          *string             `db:"ended_at" json:"ended_at"`
-	LockedAt         *string             `db:"locked_at" json:"locked_at"`
 	Outcomes         []PredictionOutcome `json:"outcomes"`
+	PredictionWindow int                 `db:"prediction_window" json:"prediction_window"`
 }
 
 type PredictionOutcome struct {
 	ID            string                  `db:"id" dbs:"po.id" json:"id"`
 	Title         string                  `db:"title" json:"title"`
-	Users         int                     `db:"users" json:"users"`
-	ChannelPoints int                     `db:"channel_points" json:"channel_points"`
-	TopPredictors []*PredictionPrediction `json:"top_predictors"`
 	Color         string                  `db:"color" json:"color"`
 	PredictionID  string                  `db:"prediction_id" json:"-"`
+	TopPredictors []*PredictionPrediction `json:"top_predictors"`
+	Users         int                     `db:"users" json:"users"`
+	ChannelPoints int                     `db:"channel_points" json:"channel_points"`
 }
 type PredictionPrediction struct {
 	PredictionID string `db:"prediction_id" json:"-"`
 	UserID       string `db:"user_id" json:"user_id"`
 	UserLogin    string `db:"user_login" dbi:"false" json:"user_login"`
 	UserName     string `db:"user_name" dbi:"false" json:"user_name"`
-	Amount       int    `db:"amount" json:"channel_points_used"`
 	OutcomeID    string `db:"outcome_id" json:"-"`
-	// calculated fields
-	AmountWon int `json:"channel_points_won"`
+	Amount       int    `db:"amount" json:"channel_points_used"`
+	AmountWon    int    `json:"channel_points_won"`
 }
 
 func (q *Query) GetPredictions(p Prediction) (*DBResponse, error) {

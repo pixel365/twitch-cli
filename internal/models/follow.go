@@ -13,6 +13,6 @@ type FollowEventSubEvent struct {
 }
 
 type FollowEventSubResponse struct {
-	Subscription EventsubSubscription `json:"subscription"`
 	Event        FollowEventSubEvent  `json:"event"`
+	Subscription EventsubSubscription `json:"subscription"`
 }

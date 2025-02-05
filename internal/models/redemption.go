@@ -12,18 +12,18 @@ type RedemptionEventSubEvent struct {
 	UserName             string           `json:"user_name"`
 	UserInput            string           `json:"user_input"`
 	Status               string           `json:"status"`
-	Reward               RedemptionReward `json:"reward"`
 	RedeemedAt           string           `json:"redeemed_at"`
+	Reward               RedemptionReward `json:"reward"`
 }
 
 type RedemptionReward struct {
 	ID     string `json:"id"`
 	Title  string `json:"title"`
-	Cost   int64  `json:"cost"`
 	Prompt string `json:"prompt"`
+	Cost   int64  `json:"cost"`
 }
 
 type RedemptionEventSubResponse struct {
-	Subscription EventsubSubscription    `json:"subscription"`
 	Event        RedemptionEventSubEvent `json:"event"`
+	Subscription EventsubSubscription    `json:"subscription"`
 }

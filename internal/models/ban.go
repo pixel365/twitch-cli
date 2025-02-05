@@ -3,18 +3,18 @@
 package models
 
 type BanEventSubEvent struct {
-	UserID               string  `json:"user_id"`
-	UserLogin            string  `json:"user_login"`
+	EndsAt               *string `json:"ends_at"`
+	ModeratorUserId      string  `json:"moderator_user_id"`
 	UserName             string  `json:"user_name"`
 	BroadcasterUserID    string  `json:"broadcaster_user_id"`
 	BroadcasterUserLogin string  `json:"broadcaster_user_login"`
 	BroadcasterUserName  string  `json:"broadcaster_user_name"`
-	ModeratorUserId      string  `json:"moderator_user_id"`
+	UserID               string  `json:"user_id"`
 	ModeratorUserLogin   string  `json:"moderator_user_login"`
 	ModeratorUserName    string  `json:"moderator_user_name"`
 	Reason               string  `json:"reason"`
 	BannedAt             string  `json:"banned_at"`
-	EndsAt               *string `json:"ends_at"`
+	UserLogin            string  `json:"user_login"`
 	IsPermanent          bool    `json:"is_permanent"`
 }
 
@@ -31,6 +31,6 @@ type UnbanEventSubEvent struct {
 }
 
 type BanEventSubResponse struct {
-	Subscription EventsubSubscription `json:"ban"`
 	Event        BanEventSubEvent     `json:"event"`
+	Subscription EventsubSubscription `json:"ban"`
 }

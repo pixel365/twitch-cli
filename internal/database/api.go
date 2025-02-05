@@ -8,10 +8,10 @@ import (
 )
 
 type DBResponse struct {
+	Data   interface{} `json:"data"`
 	Cursor string      `json:"cursor"`
 	Total  int         `json:"total"`
 	Limit  int         `json:"-"`
-	Data   interface{} `json:"data"`
 }
 
 func (c CLIDatabase) IsFirstRun() bool {

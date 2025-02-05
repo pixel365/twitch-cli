@@ -3,26 +3,26 @@
 package models
 
 type RewardEventSubEvent struct {
+	DefaultImage                      RewardImage          `json:"default_image"`
+	Image                             RewardImage          `json:"image"`
+	BroadcasterUserName               string               `json:"broadcaster_user_name"`
+	BroadcasterUserLogin              string               `json:"broadcaster_user_login"`
 	ID                                string               `json:"id"`
 	BroadcasterUserID                 string               `json:"broadcaster_user_id"`
-	BroadcasterUserLogin              string               `json:"broadcaster_user_login"`
-	BroadcasterUserName               string               `json:"broadcaster_user_name"`
-	IsEnabled                         bool                 `json:"is_enabled"`
-	IsPaused                          bool                 `json:"is_paused"`
-	IsInStock                         bool                 `json:"is_in_stock"`
 	Title                             string               `json:"title"`
-	Cost                              int64                `json:"cost"`
 	Prompt                            string               `json:"prompt"`
-	IsUserInputRequired               bool                 `json:"is_user_input_required"`
-	ShouldRedemptionsSkipRequestQueue bool                 `json:"should_redemptions_skip_request_queue"`
+	BackgroundColor                   string               `json:"background_color"`
 	CooldownExpiresAt                 string               `json:"cooldown_expires_at"`
-	RedemptionsRedeemedCurrentStream  int64                `json:"redemptions_redeemed_current_stream"`
-	MaxPerStream                      RewardMax            `json:"max_per_stream"`
 	MaxPerUserPerStream               RewardMax            `json:"max_per_user_per_stream"`
 	GlobalCooldown                    RewardGlobalCooldown `json:"global_cooldown"`
-	BackgroundColor                   string               `json:"background_color"`
-	Image                             RewardImage          `json:"image"`
-	DefaultImage                      RewardImage          `json:"default_image"`
+	MaxPerStream                      RewardMax            `json:"max_per_stream"`
+	Cost                              int64                `json:"cost"`
+	RedemptionsRedeemedCurrentStream  int64                `json:"redemptions_redeemed_current_stream"`
+	IsPaused                          bool                 `json:"is_paused"`
+	ShouldRedemptionsSkipRequestQueue bool                 `json:"should_redemptions_skip_request_queue"`
+	IsUserInputRequired               bool                 `json:"is_user_input_required"`
+	IsInStock                         bool                 `json:"is_in_stock"`
+	IsEnabled                         bool                 `json:"is_enabled"`
 }
 
 type RewardMax struct {

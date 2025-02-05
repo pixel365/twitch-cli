@@ -8,26 +8,26 @@ import (
 )
 
 type Schedule struct {
-	Segments  []ScheduleSegment `json:"segments"`
+	Vacation  *ScheduleVacation `json:"vacation"`
 	UserID    string            `db:"broadcaster_id" json:"broadcaster_id"`
 	UserLogin string            `db:"broadcaster_login" json:"broadcaster_login" dbi:"false"`
 	UserName  string            `db:"broadcaster_name" json:"broadcaster_name" dbi:"false"`
-	Vacation  *ScheduleVacation `json:"vacation"`
+	Segments  []ScheduleSegment `json:"segments"`
 }
 
 type ScheduleSegment struct {
-	ID            string           `db:"id" json:"id" dbs:"s.id"`
-	Title         string           `db:"title" json:"title"`
-	StartTime     string           `db:"starttime" json:"start_time"`
-	EndTime       string           `db:"endtime" json:"end_time"`
-	IsRecurring   bool             `db:"is_recurring" json:"is_recurring"`
-	IsVacation    bool             `db:"is_vacation" json:"-"`
 	Category      *SegmentCategory `json:"category"`
-	UserID        string           `db:"broadcaster_id" json:"-"`
 	CategoryID    *string          `db:"category_id" json:"-"`
 	CategoryName  *string          `db:"category_name" dbi:"false" json:"-"`
 	IsCanceled    *bool            `db:"is_canceled" json:"-"`
 	CanceledUntil *string          `json:"canceled_until"`
+	ID            string           `db:"id" json:"id" dbs:"s.id"`
+	Title         string           `db:"title" json:"title"`
+	StartTime     string           `db:"starttime" json:"start_time"`
+	EndTime       string           `db:"endtime" json:"end_time"`
+	UserID        string           `db:"broadcaster_id" json:"-"`
+	IsRecurring   bool             `db:"is_recurring" json:"is_recurring"`
+	IsVacation    bool             `db:"is_vacation" json:"-"`
 }
 type ScheduleVacation struct {
 	ID        string `db:"id" json:"-"`

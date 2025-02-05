@@ -25,9 +25,9 @@ type AppAccessTokenRequestBody struct {
 type AppAccessTokenEndpointResponse struct {
 	AccessToken  string   `json:"access_token"`
 	RefreshToken string   `json:"refresh_token"`
-	ExpiresIn    int      `json:"expires_in"`
-	Scope        []string `json:"scope"`
 	TokenType    string   `json:"token_type"`
+	Scope        []string `json:"scope"`
+	ExpiresIn    int      `json:"expires_in"`
 }
 
 func (e AppAccessTokenEndpoint) Path() string { return "/token" }

@@ -21,12 +21,12 @@ type AuthenticationClient struct {
 }
 
 type Authorization struct {
-	ID        int    `db:"id" dbi:"false"`
 	ClientID  string `db:"client_id"`
 	UserID    string `db:"user_id"`
 	Token     string `db:"token"`
 	ExpiresAt string `db:"expires_at"`
 	Scopes    string `db:"scopes"`
+	ID        int    `db:"id" dbi:"false"`
 }
 
 func (q *Query) GetAuthorizationByToken(token string) (Authorization, error) {

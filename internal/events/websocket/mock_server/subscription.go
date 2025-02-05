@@ -48,15 +48,14 @@ type SubscriptionPostSuccessResponse struct {
 // Response (Success) - POST /eventsub/subscriptions
 // Response (Success) - GET /eventsub/subscriptions
 type SubscriptionPostSuccessResponseBody struct {
-	ID        string `json:"id"`
-	Status    string `json:"status"`
-	Type      string `json:"type"`
-	Version   string `json:"version"`
-	CreatedAt string `json:"created_at"`
-	Cost      int    `json:"cost"`
-
 	Condition models.EventsubCondition `json:"condition"`
 	Transport SubscriptionTransport    `json:"transport"`
+	ID        string                   `json:"id"`
+	Status    string                   `json:"status"`
+	Type      string                   `json:"type"`
+	Version   string                   `json:"version"`
+	CreatedAt string                   `json:"created_at"`
+	Cost      int                      `json:"cost"`
 }
 
 // Response (Error) - POST /eventsub/subscriptions
@@ -68,12 +67,11 @@ type SubscriptionPostErrorResponse struct {
 
 // Response (Success) - GET /eventsub/subscriptions
 type SubscriptionGetSuccessResponse struct {
-	Total        int         `json:"total"`
-	TotalCost    int         `json:"total_cost"`
-	MaxTotalCost int         `json:"max_total_cost"`
-	Pagination   EmptyStruct `json:"pagination"`
-
-	Data []SubscriptionPostSuccessResponseBody `json:"data"`
+	Pagination   EmptyStruct                           `json:"pagination"`
+	Data         []SubscriptionPostSuccessResponseBody `json:"data"`
+	Total        int                                   `json:"total"`
+	TotalCost    int                                   `json:"total_cost"`
+	MaxTotalCost int                                   `json:"max_total_cost"`
 }
 
 // Cross-usage

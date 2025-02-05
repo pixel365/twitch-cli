@@ -43,20 +43,20 @@ type RefreshParameters struct {
 type AuthorizationResponse struct {
 	AccessToken  string   `json:"access_token"`
 	RefreshToken string   `json:"refresh_token"`
-	ExpiresIn    int64    `json:"expires_in"`
-	Scope        []string `json:"scope"`
 	TokenType    string   `json:"token_type"`
+	Scope        []string `json:"scope"`
+	ExpiresIn    int64    `json:"expires_in"`
 }
 
 type UserAuthorizationQueryResponse struct {
+	Error error
 	Code  string
 	State string
-	Error error
 }
 
 type LoginResponse struct {
-	Response  AuthorizationResponse
 	ExpiresAt time.Time
+	Response  AuthorizationResponse
 }
 
 type ValidateResponse struct {
@@ -69,10 +69,10 @@ type ValidateResponse struct {
 
 type DeviceCodeFlowInitResponse struct {
 	DeviceCode      string `json:"device_code"`
-	ExpiresIn       int    `json:"expires_in"`
-	Interval        int    `json:"interval"`
 	UserCode        string `json:"user_code"`
 	VerificationUri string `json:"verification_uri"`
+	ExpiresIn       int    `json:"expires_in"`
+	Interval        int    `json:"interval"`
 }
 
 const ClientCredentialsURL = "https://id.twitch.tv/oauth2/token?grant_type=client_credentials"

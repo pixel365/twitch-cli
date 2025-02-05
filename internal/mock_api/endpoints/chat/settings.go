@@ -31,15 +31,15 @@ var settingsScopesByMethod = map[string][]string{
 // Only used when the user isn't a moderator
 type GetSettingsResponseUnprivileged struct {
 	BroadcasterID                 string `json:"broadcaster_id"`
-	SlowMode                      bool   `json:"slow_mode"`
 	SlowModeWaitTime              int    `json:"slow_mode_wait_time"`
-	FollowerMode                  bool   `json:"follower_mode"`
 	FollowerModeDuration          int    `json:"follower_mode_duration"`
+	NonModeratorChatDelayDuration int    `json:"-"`
+	SlowMode                      bool   `json:"slow_mode"`
+	FollowerMode                  bool   `json:"follower_mode"`
 	SubscriberMode                bool   `json:"subscriber_mode"`
 	EmoteMode                     bool   `json:"emote_mode"`
 	UniqueChatMode                bool   `json:"unique_chat_mode"`
 	NonModeratorChatDelay         bool   `json:"-"`
-	NonModeratorChatDelayDuration int    `json:"-"`
 }
 
 type PatchSettingsRequestBody struct {
@@ -57,15 +57,15 @@ type PatchSettingsRequestBody struct {
 type PatchSettingsResponseBody struct {
 	BroadcasterID                 string `json:"broadcaster_id"`
 	ModeratorID                   string `json:"moderator_id"`
-	SlowMode                      bool   `json:"slow_mode"`
 	SlowModeWaitTime              int    `json:"slow_mode_wait_time"`
-	FollowerMode                  bool   `json:"follower_mode"`
 	FollowerModeDuration          int    `json:"follower_mode_duration"`
+	NonModeratorChatDelayDuration int    `json:"non_moderator_chat_delay_duration"`
+	SlowMode                      bool   `json:"slow_mode"`
+	FollowerMode                  bool   `json:"follower_mode"`
 	SubscriberMode                bool   `json:"subscriber_mode"`
 	EmoteMode                     bool   `json:"emote_mode"`
 	UniqueChatMode                bool   `json:"unique_chat_mode"`
 	NonModeratorChatDelay         bool   `json:"non_moderator_chat_delay"`
-	NonModeratorChatDelayDuration int    `json:"non_moderator_chat_delay_duration"`
 }
 
 type Settings struct{}

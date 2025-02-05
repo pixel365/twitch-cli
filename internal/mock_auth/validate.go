@@ -17,8 +17,8 @@ type ValidateTokenEndpointResponse struct {
 	ClientID  string   `json:"client_id"`
 	UserID    string   `json:"user_id,omitempty"`
 	UserLogin string   `json:"login,omitempty"`
-	ExpiresIn int      `json:"expires_in"`
 	Scopes    []string `json:"scopes"`
+	ExpiresIn int      `json:"expires_in"`
 }
 
 func (e ValidateTokenEndpoint) Path() string { return "/validate" }

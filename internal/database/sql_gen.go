@@ -14,9 +14,9 @@ const SEP_AND = "and"
 const SEP_OR = "or"
 
 type InternalPagination struct {
-	SQL string
-	InternalCursor
+	SQL              string
 	PaginationCursor string
+	InternalCursor
 }
 
 type InternalCursor struct {

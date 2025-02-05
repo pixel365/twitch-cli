@@ -28,15 +28,15 @@ type TransactionEventSubResponse struct {
 
 type TransactionProduct struct {
 	Sku           string          `json:"sku"`
-	Cost          TransactionCost `json:"cost"`
 	DisplayName   string          `json:"displayName"`
-	InDevelopment bool            `json:"inDevelopment"`
-	Broadcast     bool            `json:"broadcast"`
 	Domain        string          `json:"domain"`
 	Expiration    string          `json:"expiration"`
+	Cost          TransactionCost `json:"cost"`
+	InDevelopment bool            `json:"inDevelopment"`
+	Broadcast     bool            `json:"broadcast"`
 }
 
 type TransactionCost struct {
-	Amount int64  `json:"amount"`
 	Type   string `json:"type"`
+	Amount int64  `json:"amount"`
 }

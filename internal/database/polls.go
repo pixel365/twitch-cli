@@ -3,29 +3,29 @@
 package database
 
 type Poll struct {
+	Status                     string        `db:"status" json:"status"`
 	ID                         string        `db:"id" dbs:"p.id" json:"id"`
-	BroadcasterID              string        `db:"broadcaster_id" dbs:"u1.id" json:"broadcaster_id"`
 	BroadcasterLogin           string        `db:"broadcaster_login" dbi:"false" json:"broadcaster_login"`
 	BroadcasterName            string        `db:"broadcaster_name" dbi:"false" json:"broadcaster_name"`
 	Title                      string        `db:"title" dbs:"p.title" json:"title"`
-	BitsVotingEnabled          bool          `db:"bits_voting_enabled" json:"bits_voting_enabled"`
-	BitsPerVote                int           `db:"bits_per_vote" json:"bits_per_vote"`
-	ChannelPointsVotingEnabled bool          `db:"channel_points_voting_enabled" json:"channel_points_voting_enabled"`
-	ChannelPointsPerVote       int           `db:"channel_points_per_vote" json:"channel_points_per_vote"`
-	Status                     string        `db:"status" json:"status"`
-	Duration                   int           `db:"duration" json:"duration"`
-	StartedAt                  string        `db:"started_at" json:"started_at"`
+	BroadcasterID              string        `db:"broadcaster_id" dbs:"u1.id" json:"broadcaster_id"`
 	EndedAt                    string        `db:"ended_at" json:"ended_at,omitempty"`
+	StartedAt                  string        `db:"started_at" json:"started_at"`
 	Choices                    []PollsChoice `json:"choices"`
+	BitsPerVote                int           `db:"bits_per_vote" json:"bits_per_vote"`
+	ChannelPointsPerVote       int           `db:"channel_points_per_vote" json:"channel_points_per_vote"`
+	Duration                   int           `db:"duration" json:"duration"`
+	ChannelPointsVotingEnabled bool          `db:"channel_points_voting_enabled" json:"channel_points_voting_enabled"`
+	BitsVotingEnabled          bool          `db:"bits_voting_enabled" json:"bits_voting_enabled"`
 }
 
 type PollsChoice struct {
 	ID                 string `db:"id" json:"id"`
 	Title              string `db:"title" json:"title"`
+	PollID             string `db:"poll_id" json:"-"`
 	Votes              int    `db:"votes" json:"votes"`
 	ChannelPointsVotes int    `db:"channel_points_votes" json:"channel_points_votes"`
 	BitsVotes          int    `db:"bits_votes" json:"bits_votes"`
-	PollID             string `db:"poll_id" json:"-"`
 }
 
 func (q *Query) GetPolls(p Poll) (*DBResponse, error) {
